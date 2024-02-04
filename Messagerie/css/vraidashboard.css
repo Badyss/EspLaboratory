@@ -1,0 +1,267 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    transition: 0.8S ease-in;
+    background-image: url('../../logos/pageacceuil.png');
+    background-color: rgba(84, 190, 178, 0.7);
+    filter: hue-rotate(130deg) blur(1px) contrast(1.1);
+  }
+
+main {
+    background-color: red;
+    height:80%;
+    width: 80%;
+    z-index:10;
+
+}
+.vraidash {
+    display: none;
+    border-radius: 10px;
+    width: 80%;
+    height:80%;
+    border:1px solid white;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* MINI NAVBAR DASHBOARD */
+
+.navside {
+    width:230px;
+    background-color: white;
+    margin:20px;
+    padding:24px;
+    border-radius: 10px;
+}
+
+.logoesp {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid grey;
+}
+
+.logoesp img {
+    height:100px;
+    margin-top:-10px;
+}
+
+.mininav {
+    display: flex;
+    align-items: center;
+    padding:10px;
+    cursor: pointer;
+    margin-bottom:-5px;
+    transition: 0.3S ease;
+    border-radius: 6px;
+}
+
+.mininav:hover {
+    background-color: rgb(230, 237, 237);
+}
+
+.mininav h1{
+    font-size:14Px;
+    width:100%;
+}
+
+.mininav-logo {
+    background-color:rgba(35, 73, 118, 255);
+    margin:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    padding:8px;
+}
+
+.mininav-logo img {
+    height:16px;
+    width:16px;
+    filter:invert(100%)
+}
+
+.maindash {
+    margin-top:30px;
+    display: block; /**//**//**//**//**//**//**/
+    width:100%;
+    border-radius: 5px;
+}
+
+
+/* Barre stats */
+
+.barrestats {
+    width:100%;
+    display: flex;
+    margin-top:70px;
+}
+
+.ministats {
+    background-color: white;
+    display: flex;
+    transform:scale(0.8);
+    width:100%;
+    padding:5px;
+    border-radius: 16px;
+}
+
+.barrestats-toplogo {
+    width:35%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.barrestats-logo {
+    background-color:rgba(35, 73, 118, 255);
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    margin:10px;
+}
+
+.barrestats-logo img {
+    height:28px;
+    width:28px;
+    filter:invert(100%)
+}
+
+.ministats-texte {
+    display: block;
+    padding:0 10px;
+    width:65%
+}
+
+.ministats-texte h1{
+    font-size:19px;
+    margin:0;
+    margin-top:3Px;
+}
+
+.ministats-texte h2{
+    font-size:27Px;
+    padding-top:5px;
+    margin-top:-3px;
+    margin-bottom:0;
+}
+
+.ministats-texte h2 span {
+    font-size:13px;
+    font-variant-numeric: oldstyle-nums
+}
+
+/* GRAPHIQUE */
+
+
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 300px;
+    margin: 20px;
+}
+
+.bar {
+    width: 20px;
+    background-color: #3498db;
+    margin-bottom: 5px;
+    transition: height 0.5s;
+}
+
+.day-label {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+canvas {
+    margin: 20px;
+}
+
+
+/* CAMEMBERT */
+
+.graphiques {
+    display: flex;
+    margin-top:100px;
+}
+
+.graphiques div {
+    width:100%;
+}
+
+
+/*/ USERS */
+
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: rgba(35, 73, 118, 255);
+    z-index: 1;
+
+}
+
+.usersdash {
+    background-color: white;
+    border-radius: 5px;
+    margin:10px 0;
+    width:100%;
+    overflow-y: auto;
+    display:none; /**//**//**//**/
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid rgba(35, 73, 118, 255);
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.editcase {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:none;
+}
+
+.editcase img {
+    width:20px;
+    cursor:pointer;    
+}
+
+.toggleadmin:hover {
+    cursor: pointer;
+    background-color: #ffff66;
+}

@@ -1,0 +1,37 @@
+.cookie-banner {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+}
+  
+.cookie-banner p {
+    margin-bottom: 10px;
+}
+  
+.cookie-banner button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+  
+#accept-cookies {
+    background-color: #2ecc71;
+    color: white;
+}
+  
+#refuse-cookies {
+    background-color: #e74c3c;
+    color: white;
+}
+  

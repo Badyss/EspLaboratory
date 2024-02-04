@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="../logos/logo.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" type="text/css" href="css/register.css">
+  <title> EspLaboratory</title>
+</head>
+<body>
+  <div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+      <div class="imagecentre">
+        <img src="../logos/login.jpg" alt="Login Image">
+      </div>
+      <div class="mailsend" id="mailsend">Mot de passe changé avec succès</div>
+      <form action="in/login.php" method="post">
+        <div class="formbold-form-title">
+          <h2>Se connecter</h2>
+        </div>
+        <div class="formbold-mb-3">
+          <div>
+            <label for="email" class="formbold-form-label">Adresse mail</label>
+            <input type="mail" name="mail" id="mail" class="formbold-form-input">
+          </div>
+        </div>
+        <div class="formbold-mb-3">
+          <label for="motdepasse" class="formbold-form-label">Mot de passe</label>
+          <input type="password" name="password" id="password" class="formbold-form-input">
+        </div>
+        <div class="erreur" style="display:none">
+            <h1>Identifiant ou mot de passe incorrect</h1>
+        </div>
+        <div class="formbold-mb-3">
+          <input type="checkbox" name="remember" id="remember_me">
+          <label for="remember_me"style="color: #536387;">Se souvenir de moi</label>
+        </div>
+        <div class="formbold-input-flex">
+        </div>
+        <button class="formbold-btn" type="submit">Se connecter</button>
+      </form>
+      <div class="compteexistant">
+        <p>Vous n'avez pas de compte ?</p><a href="register.html">S'inscrire</a>
+      </div>
+      <div class="compteexistant">
+        <p>Mot de passe</p><a href="forget.html">oublié ?</a>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  function showMailsend() {
+    document.getElementById('mailsend').style.display = 'block';
+  }
+  const urlParams = new URLSearchParams(window.location.search);
+  const mailsentParam = urlParams.get('mailsent');
+  if (mailsentParam && mailsentParam === 'true') {
+    showMailsend();
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const rememberMeCheckbox = document.getElementById('remember_me');
+    const emailInput = document.getElementById('mail');
+
+    rememberMeCheckbox.addEventListener('change', function() {
+      if (this.checked && document.cookie.includes('remember_me=')) {
+        const email = document.cookie
+          .split('; ')
+          .find(row => row.startsWith('remember_me='))
+          .split('=')[1];
+              
+        emailInput.value = email;
+      } else {
+        emailInput.value = ''; // Réinitialiser le champ si la case n'est pas cochée
+      }
+    });
+
+    // Vérifier si la case est déjà cochée au chargement de la page
+    if (rememberMeCheckbox.checked && document.cookie.includes('remember_me=')) {
+      const email = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('remember_me='))
+        .split('=')[1];
+            
+      emailInput.value = email;
+    }
+  });
+</script>
+</html>
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="logos/logo.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" type="text/css" href="css/register.css">
+  <title> EspLaboratory</title>
+</head>
+<body>
+  <div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+      <div class="imagecentre">
+        <img src="../logos/login.jpg" alt="Login Image">
+      </div>
+      <div class="mailsend" id="mailsend">Mail envoyé avec succès</div>
+      <form action="in/forget.php" method="post">
+        <div class="formbold-form-title">
+          <h2>Mot de passe oublié</h2>
+        </div>
+        <div class="formbold-mb-3">
+          <div>
+            <label for="email" class="formbold-form-label">Adresse mail</label>
+            <input type="mail" name="mail" id="mail" class="formbold-form-input">
+          </div>
+        </div>
+        <div class="formbold-input-flex">
+        </div>
+        <button class="formbold-btn" type="submit">Envoyez l'email de récupération</button>
+      </form>
+      <div class="compteexistant">
+        <p>Vous n'avez pas de compte ?</p><a href="register.html">S'inscrire</a>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+    function showMailsend() {
+      document.getElementById('mailsend').style.display = 'block';
+    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const mailsentParam = urlParams.get('mailsent');
+    if (mailsentParam && mailsentParam === 'true') {
+      showMailsend();
+    }
+  </script>
+</html>

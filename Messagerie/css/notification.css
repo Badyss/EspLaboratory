@@ -1,0 +1,70 @@
+.demande {
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 50px;
+    display:flex;
+    justify-content: center;
+}
+
+.demande img {
+    object-fit: cover;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+}
+
+.demande tr {
+    font-size:22px;
+    color:black;
+    display: flex;
+    align-items: center;
+    margin:30px;
+    background-color: rgba(163, 163, 163, 0.212);
+    padding:10px;
+    border-radius:5px;
+}
+
+
+.update-status {
+    background-color: rgba(35, 73, 118, 255);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    border:none;
+    cursor:pointer;
+    padding:16px;
+    font-size:17px;
+    border: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.infos {
+    display:block;
+    margin-left:50px;
+    width:400px;
+}
+
+table {
+    margin-top:15px
+}
+
+.sousdemande {
+    background-color: white;
+    display: flex;
+    padding:20px;
+    border-radius:10px;
+}
+
+.demande button.acceptFriend{
+    background-color: rgba(35, 73, 118, 255);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    padding: 16px;
+    border: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin: 15px;
+    width: 200px;
+}

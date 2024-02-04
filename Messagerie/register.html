@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="logos/logo.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" type="text/css" href="css/register.css">
+  <title> EspLaboratory</title>
+</head>
+<body>
+  <div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+      <div class="imagecentre">
+        <img src="../logos/login.jpg" alt="Login Image">
+      </div>
+      <form action="in/register.php" method="post">
+        <div class="formbold-form-title">
+          <h2>S'inscrire</h2>
+        </div>
+        <div class="formbold-input-flex">
+          <div>
+            <label for="prenom" class="formbold-form-label">Prénom</label>
+            <input type="text" name="prenom" id="prenom" class="formbold-form-input">
+          </div>
+          <div>
+            <label for="nom" class="formbold-form-label">Nom de famille</label>
+            <input type="text" name="nom" id="nom" class="formbold-form-input">
+          </div>
+        </div>
+        <div class="formbold-input-flex">
+          <div>
+            <label for="email" class="formbold-form-label">Adresse mail</label>
+            <input type="email" name="mail" id="mail" class="formbold-form-input">
+          </div>
+          <div>
+            <label for="telephone" class="formbold-form-label">Formation</label>
+            <select name="formation" id="formation" class="formbold-form-input">
+                <option value="Réseaux et Télécoms">Réseaux et Télécoms</option>
+                <option value="Informatique">Informatique</option>
+                <option value="Génie Électrique et Informatique">Génie Électrique et Informatique</option>
+                <option value="Gestion administrative et commerciale">Gestion administrative et commerciale</option>
+            </select>
+        </div>
+        
+        </div>
+        <div class="erreur" style="display:none">
+          <h1>L'adresse e-mail est déjà utilisée.</h1>
+        </div>
+        <div class="formbold-mb-3">
+          <label for="motdepasse" class="formbold-form-label">Mot de passe</label>
+          <input type="password" name="password" id="password" class="formbold-form-input">
+        </div>
+        <div class="formbold-input-flex">
+        </div>
+        <div class="formbold-checkbox-wrapper">
+          <label for="supportCheckbox" class="formbold-checkbox-label">
+            <div class="formbold-relative">
+              <input type="checkbox" id="supportCheckbox" class="formbold-input-checkbox">
+              <div class="formbold-checkbox-inner">
+                <span class="formbold-opacity-0">
+                  <svg width="11" height="8" viewBox="0 0 11 8" fill="none" class="formbold-stroke-current">
+                    <path d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z" stroke-width="0.4"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <a href="#">Accepter les termes et conditions</a>
+          </label>
+        </div>
+        <button class="formbold-btn" type="submit">S'inscrire</button>
+      </form>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const form = document.querySelector('form');
+          form.addEventListener('submit', function(event) {
+            const emailInput = document.getElementById('mail');
+            const passwordInput = document.getElementById('password');
+            const checkboxInput = document.getElementById('supportCheckbox');
+        
+            // Vérification de l'adresse e-mail pour Gmail et Outlook uniquement
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+              event.preventDefault();
+              alert('Veuillez entrer une adresse e-mail valide.');
+              return;
+            }
+        
+            // Vérification du mot de passe
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(passwordInput.value)) {
+              event.preventDefault();
+              alert('Le mot de passe doit contenir au moins 8 caractères, dont au moins une majuscule, un chiffre et un caractère spécial.');
+              return;
+            }
+            if (!checkboxInput.checked) {
+              event.preventDefault();
+              alert('Veuillez accepter les termes et conditions.');
+              return;
+            }
+          });
+        });
+      </script>
+      <div class="compteexistant">
+        <p>Vous avez déjà un compte ?</p><a href="login.html">Se connecter</a>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    // Récupérer les paramètres de l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const errorParam = urlParams.get('error');
+
+    // Afficher le message d'erreur si le paramètre d'URL est présent
+    if (errorParam === 'email_exists') {
+      const erreurDiv = document.querySelector('.erreur');
+      if (erreurDiv) {
+        erreurDiv.style.display = 'block';
+        const erreurh1 = erreurDiv.querySelector('h1'); // Ajout de cette ligne pour cibler l'élément h1
+        if (erreurh1) {
+          erreurh1.style.display = 'block';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
